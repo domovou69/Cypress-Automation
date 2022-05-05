@@ -1,0 +1,12 @@
+{
+    "baseUrl": "https://rahulshettyacademy.com",
+    "defaultCommandTimeout": 8000,
+    "projectId": "8npfgf",
+    "env":{
+        "url": "https://rahulshettyacademy.com"
+    },
+    "retries": {
+        "runMode": 1,
+        "openMode": 1
+    }
+}
