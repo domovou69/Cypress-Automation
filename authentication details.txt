@@ -1,0 +1,16 @@
+Authentication Server API Contract Details: -
+
+
+
+url – http://localhost:7075/login?redirectTo=http://localhost:7074/set_token
+
+
+Method: POST
+
+
+
+url encoded Body content
+
+username : jane.lane
+
+password : password123

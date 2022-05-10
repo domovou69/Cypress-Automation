@@ -10,23 +10,34 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+// Cypress.Commands.add("login", (email, password) => { ... })
 //
-Cypress.Commands.add('selectProduct', (productName) => { 
-    cy.get('.card-body a').each(($el, index) =>{
-    if($el.text().includes(productName)) {
-        cy.get('.card button').eq(index).click()
-    }
-}) })
-
 //
 // -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
+// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
 //
 //
 // -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
+// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
 //
 //
 // -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+// cypress/support/commands.ts
+
+Cypress.Commands.add('getBySel', (selector, ...args) => {
+    return cy.get(`[data-test=${selector}]`, ...args)
+  })
+  
+Cypress.Commands.add('getBySelLike', (selector, ...args) => {
+    return cy.get(`[data-test*=${selector}]`, ...args)
+  })
+
+  Cypress.Commands.add('LoginAPI', ()=>{
+      cy.request('POST', 'https://www.rahulshettyacademy.com/api/ecom/auth/login',
+      {'userEmail':'rahulshetty@gmail.com', 'userPassword':'Iamking@00'}).then(function(response){
+          expect(response.status).to.eq(200)
+          Cypress.env('token', response.body.token)
+      })
+  })

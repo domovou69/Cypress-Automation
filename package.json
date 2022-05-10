@@ -67,6 +67,7 @@
     "semantic-release": "15.13.32",
     "start-server-and-test": "1.10.6",
     "stop-build": "1.1.0",
-    "yaml-lint": "1.2.4"
+    "yaml-lint": "1.2.4",
+    "neat-csv": "5.1.0"
   }
 }
